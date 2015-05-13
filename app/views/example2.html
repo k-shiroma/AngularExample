@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- モジュール読み込み指定(myAppを読み込み) -->
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>AngularJS Example</title>
+</head>
+<body>
+
+	<!-- コントローラ指定(View2Controllerを指定) -->
+	<div ng-controller="View2Controller">
+		<p>AngularJS Example</p>
+		
+		<!-- ng-modelで$scope内の変数指定(コントローラ内では$scope.lastNameでアクセス可能) -->
+		<p>姓:<input ng-model="lastName"></p>
+		<p>名:<input ng-model="firstName"></p>
+		
+		<!-- ng-showでlastName,firstNameのどちらかに値ありの場合なら表示 -->
+		<p>{{message}} {{lastName}} {{firstName}} <span ng-show="lastName || firstName">さん！</span></p>
+		
+		<!-- AngularJS がちゃんと効いているか確認用に計算 -->
+		<p>{{1+2}}</p>
+		
+		<!-- コントローラのclear()呼び出し(メソッドなので括弧必須) -->
+		<p><button ng-click="clear()">クリア</button></p>
+	</div>
+	
+	<!-- 画面読み込みをブロックしないよう、bodyタグ直前で読み込み -->
+	<script src="../../lib/angular.min.js"></script>
+	<script src="../../lib/angular-route.min.js"></script>
+	<script src="../app.js"></script>
+	<script src="../scripts/controllers/view2Controller.js"></script>
+
+</body>
+</html>
